@@ -2,7 +2,7 @@
 
 namespace Tarefas.IoC
 {
-    public class Class1
+    public static class DependencyInjectionConfig
     {
 
     }
