@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tarefas.Application\Tarefas.Application.csproj" />
+    <ProjectReference Include="..\Tarefas.Infrastructure\Tarefas.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
