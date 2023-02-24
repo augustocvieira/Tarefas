@@ -6,13 +6,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using Tarefas.IoC;
 
 namespace Tarefas.Presentation.Wpf
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private IServiceProvider _serviceProvider;
 
@@ -26,6 +27,8 @@ namespace Tarefas.Presentation.Wpf
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddSingleton<MainWindow>();
+            var connectionString = ConfigurationManager.ConnectionStrings["ConextDb"].ConnectionString;
+            DependencyInjectionConfig.RegisterServicesApi(services, connectionString);
             // TODO: Add IoC methods
         }
 

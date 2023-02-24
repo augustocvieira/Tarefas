@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tarefas.Application.Interfaces.Services;
 
 namespace Tarefas.Presentation.Wpf
 {
@@ -20,9 +21,18 @@ namespace Tarefas.Presentation.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ITarefaService _trefaService;
+
+        public MainWindow(ITarefaService trefaService) : base()
         {
+            _trefaService = trefaService;
             InitializeComponent();
+            TestaTarefas();
+        }
+
+        private async void TestaTarefas()
+        {
+            await _trefaService.ObterTarefasAsync();
         }
     }
 }
