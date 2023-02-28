@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Tarefas.Application.Interfaces.Repositories;
-using Tarefas.Application.Interfaces.Services;
 using Tarefas.Domain.Models;
+using Tarefas.Domain.Interfaces.Repositories;
+using Tarefas.Domain.Interfaces.Services;
 
 namespace Tarefas.Application.Services
 {

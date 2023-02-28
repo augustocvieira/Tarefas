@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Tarefas.Domain.Models;
 
-namespace Tarefas.Infrastructure.Model_Builders;
+namespace Tarefas.Infrastructure.Mappings;
 
 public static class UsuarioMap
 {
-    public static void Build(ModelBuilder builder)
+    public static void Map(ModelBuilder builder)
     {
         builder.Entity<Usuario>()
             .Property(t => t.Id)

@@ -5,7 +5,7 @@ namespace Tarefas.Infrastructure.Mappings;
 
 public static class StatusMap
 {
-    public static void Build(ModelBuilder builder)
+    public static void Map(ModelBuilder builder)
     {
         builder.Entity<Status>()
             .Property(t => t.Id)

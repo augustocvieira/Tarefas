@@ -14,8 +14,4 @@
     <ProjectReference Include="..\Tarefas.Application\Tarefas.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Context\" />
-  </ItemGroup>
-
 </Project>

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Tarefas.Application.Interfaces.Services;
+using Tarefas.Domain.Interfaces.Services;
 
 namespace Tarefas.Presentation.Api.Controllers
 {

@@ -4,13 +4,13 @@ using Tarefas.Infrastructure.Mappings;
 
 namespace Tarefas.Infrastructure.Context;
 
-public class Context : DbContext
+public class RepositoryDbContext : DbContext
 {
     public DbSet<Status> Statuses { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Tarefa> Tarefas { get; set; }
 
-    public Context(DbContextOptions options) : base(options)
+    public RepositoryDbContext(DbContextOptions options) : base(options)
     {
     }
 

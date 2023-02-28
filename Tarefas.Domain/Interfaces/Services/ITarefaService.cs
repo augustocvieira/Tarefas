@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Tarefas.Domain.Models;
 
-namespace Tarefas.Application.Interfaces.Repositories
+namespace Tarefas.Domain.Interfaces.Services
 {
-    public interface ITarefaRepository
+    public interface ITarefaService
     {
         Task<IEnumerable<Tarefa>> ObterTarefasAsync();
     }
