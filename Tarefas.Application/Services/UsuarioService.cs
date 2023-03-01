@@ -21,6 +21,9 @@ public class UsuarioService : IUsuarioService
 
     public async Task<UsuarioDto> SignUpAsync(UsuarioSignUpDto usuarioSignUp, CancellationToken token)
     {
+        if(await _repositoryManager.UsuarioRepository.ExistsByLoginAsync(usuarioSignUp.Login, token))
+            throw new SignUpException("Usuario já cadastrado.");
+
         if (!string.Equals(usuarioSignUp.Senha, usuarioSignUp.RepitaSenha))
             throw new SignUpException("Senha informada não condiz com sua confirmação.");
 
@@ -32,9 +35,15 @@ public class UsuarioService : IUsuarioService
         return usuario.Adapt<UsuarioDto>();
     }
 
-    public async Task SignInAsync(UsuarioSignInDto usuarioSignIn)
+    public async Task<UsuarioDto> SignInAsync(UsuarioSignInDto usuarioSignIn, CancellationToken token)
     {
-        throw new NotImplementedException();
+        var usuario = await _repositoryManager.UsuarioRepository.FindByLoginAsync(usuarioSignIn.Login, token);
+
+        if (usuario == null || !usuario.Senha.Equals(usuarioSignIn.Login))
+            throw new SignInException("Usuário e/ou senha inválidos");
+
+        return usuario.Adapt<UsuarioDto>();
+
     }
 
 

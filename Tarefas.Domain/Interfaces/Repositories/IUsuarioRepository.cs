@@ -7,4 +7,6 @@ namespace Tarefas.Domain.Interfaces.Repositories;
 public interface IUsuarioRepository
 {
     Task InsertAsync(Usuario usuario, CancellationToken token);
+    Task<bool> ExistsByLoginAsync(string login, CancellationToken token);
+    Task<Usuario> FindByLoginAsync(string login, CancellationToken token);
 }
