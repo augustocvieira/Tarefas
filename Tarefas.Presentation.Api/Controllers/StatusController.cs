@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tarefas.Domain.Interfaces.Repositories;
+using Tarefas.Domain.Interfaces.Services;
 
 namespace Tarefas.Presentation.Api.Controllers
 {
@@ -8,18 +9,17 @@ namespace Tarefas.Presentation.Api.Controllers
     [ApiController]
     public class StatusController : ControllerBase
     {
-        private readonly IRepositoryManager _repositoryManager;
+        private readonly IServiceManager _serviceManager;
 
-        public StatusController(IRepositoryManager repositoryManager)
+        public StatusController(IServiceManager serviceManager)
         {
-            _repositoryManager = repositoryManager;
+            _serviceManager = serviceManager;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get(CancellationToken token)
         {
-            var service = _repositoryManager.StatusRepository;
-            var result = await service.GetAll(token);
+            var result = await _serviceManager.StatusService.GetAllAsync(token);
             return Ok(result);
         }
     }

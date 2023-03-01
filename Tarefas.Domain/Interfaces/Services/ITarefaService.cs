@@ -6,6 +6,6 @@ namespace Tarefas.Domain.Interfaces.Services
 {
     public interface ITarefaService
     {
-        Task<IEnumerable<Tarefa>> ObterTarefasAsync();
+        Task<IEnumerable<Tarefa>> GetAllAsync();
     }
 }

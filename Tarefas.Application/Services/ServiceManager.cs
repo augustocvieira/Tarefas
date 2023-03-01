@@ -4,7 +4,7 @@ using Tarefas.Domain.Interfaces.Services;
 
 namespace Tarefas.Application.Services;
 
-public class ServiceManager : IServiceManager
+public sealed class ServiceManager : IServiceManager
 {
     private readonly Lazy<IStatusService> _lazyStatusService;
     private readonly Lazy<IUsuarioService> _lazyUsuarioService;
@@ -18,7 +18,7 @@ public class ServiceManager : IServiceManager
     }
 
 
-    public IStatusService StatusService { get; }
-    public IUsuarioService UsuarioService { get; }
-    public ITarefaService TarefaService { get; }
+    public IStatusService StatusService => _lazyStatusService.Value;
+    public IUsuarioService UsuarioService => _lazyUsuarioService.Value;
+    public ITarefaService TarefaService => _lazyTarefaService.Value;
 }

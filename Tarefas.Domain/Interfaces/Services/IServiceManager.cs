@@ -2,5 +2,7 @@
 
 public interface IServiceManager
 {
-    
+    IStatusService StatusService { get; }
+    IUsuarioService UsuarioService { get; }
+    ITarefaService TarefaService { get; }
 }
