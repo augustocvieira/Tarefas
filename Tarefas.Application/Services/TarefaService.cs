@@ -16,7 +16,7 @@ namespace Tarefas.Application.Services
             _repositoryManager = repositoryManager;
         }
 
-        public async Task<IEnumerable<Tarefa>> ObterTarefasAsync()
+        public async Task<IEnumerable<Tarefa>> GetAllAsync()
         {
             var repo = _repositoryManager.TarefaRepository;
             var databaseResult = await repo.ObterTarefasAsync();

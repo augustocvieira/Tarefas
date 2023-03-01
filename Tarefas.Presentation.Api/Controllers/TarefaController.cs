@@ -17,7 +17,7 @@ namespace Tarefas.Presentation.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _service.ObterTarefasAsync();
+            var result = await _service.GetAllAsync();
             return Ok(result);
         }
     }
