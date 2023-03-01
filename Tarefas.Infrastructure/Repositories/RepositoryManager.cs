@@ -23,6 +23,7 @@ public class RepositoryManager : IRepositoryManager
     public IUsuarioRepository UsuarioRepository => _lazyUsuarioRepository.Value;
     public IStatusRepository StatusRepository => _lazyStatusRepository.Value;
     public ITarefaRepository TarefaRepository => _lazyTarefaRepository.Value;
+    public IUnitOfWork UnitOfWork => _lazyUnitOfWork.Value;
 
 
 }
