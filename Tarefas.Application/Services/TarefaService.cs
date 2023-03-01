@@ -9,16 +9,17 @@ namespace Tarefas.Application.Services
 {
     public class TarefaService : ITarefaService
     {
-        private readonly ITarefaRepository _repository;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public TarefaService(ITarefaRepository repository)
+        public TarefaService(IRepositoryManager repositoryManager)
         {
-            _repository = repository;
+            _repositoryManager = repositoryManager;
         }
 
         public async Task<IEnumerable<Tarefa>> ObterTarefasAsync()
         {
-            var databaseResult = await _repository.ObterTarefasAsync();
+            var repo = _repositoryManager.TarefaRepository;
+            var databaseResult = await repo.ObterTarefasAsync();
             return databaseResult;
         }
     }

@@ -23,22 +23,16 @@ namespace Tarefas.Presentation.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ITarefaService _trefaService;
-        private readonly IRepositoryManager _repositoryManager;
-
-        public MainWindow(ITarefaService trefaService, IRepositoryManager repositoryManager)
+        public MainWindow()
         {
-            _trefaService = trefaService;
-            _repositoryManager = repositoryManager;
-            InitializeComponent();
-            TestaIoC();
         }
+
 
         private async void TestaIoC()
         {
-            var repo = _repositoryManager.StatusRepository;
-            var result = await repo.GetAll(CancellationToken.None);
-            Console.WriteLine("Tes");
+            //var repo = _repositoryManager.StatusRepository;
+            //var result = await repo.GetAll(CancellationToken.None);
+            //Console.WriteLine("Tes");
         }
     }
 }
