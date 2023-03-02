@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  banco_tarefas_mssql:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: 89N8%N9RM6a5CBHj^
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+    container_name: banco_tarefas_mssql
+    restart: unless-stopped
+volumes:
+  sqlvolume:
+
