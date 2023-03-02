@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Application", "Tarefas.Application\Tarefas.Application.csproj", "{4AA86A73-19A8-4BDB-9BCB-736AD9C00B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarefas.Application", "Tarefas.Application\Tarefas.Application.csproj", "{4AA86A73-19A8-4BDB-9BCB-736AD9C00B81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Domain", "Tarefas.Domain\Tarefas.Domain.csproj", "{ACD5F942-D556-4A20-8422-A5554A7F26AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarefas.Domain", "Tarefas.Domain\Tarefas.Domain.csproj", "{ACD5F942-D556-4A20-8422-A5554A7F26AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Infrastructure", "Tarefas.Infrastructure\Tarefas.Infrastructure.csproj", "{2C95EDF8-5E09-491D-80FE-AAB2AFFFACE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarefas.Infrastructure", "Tarefas.Infrastructure\Tarefas.Infrastructure.csproj", "{2C95EDF8-5E09-491D-80FE-AAB2AFFFACE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.IoC", "Tarefas.IoC\Tarefas.IoC.csproj", "{676A602C-1099-4F4E-9199-EC6B961BCA4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarefas.IoC", "Tarefas.IoC\Tarefas.IoC.csproj", "{676A602C-1099-4F4E-9199-EC6B961BCA4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Presentation.Wpf", "Tarefas.Presentation.Wpf\Tarefas.Presentation.Wpf.csproj", "{9C330447-610E-4EEE-9C69-7076BCB4F001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarefas.Presentation.Wpf", "Tarefas.Presentation.Wpf\Tarefas.Presentation.Wpf.csproj", "{9C330447-610E-4EEE-9C69-7076BCB4F001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas.Presentation.Api", "Tarefas.Presentation.Api\Tarefas.Presentation.Api.csproj", "{F2891C3D-6EDD-421A-9F6A-053298FFA084}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tarefas.Presentation.Api", "Tarefas.Presentation.Api\Tarefas.Presentation.Api.csproj", "{F2891C3D-6EDD-421A-9F6A-053298FFA084}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93C12CC3-DFE8-46F2-B26E-2F4243607B87}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

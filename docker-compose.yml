@@ -5,13 +5,11 @@ services:
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: 89N8%N9RM6a5CBHj^
-      MSSQL_PID: Express
+      MSSQL_PID: Express      
     ports:
       - "1433:1433"
     volumes:
-      - sqlvolume:/var/opt/mssql
+      - "${SQL_VOLUME_PATH}:/usr/share/mssql"
     container_name: banco_tarefas_mssql
     restart: unless-stopped
-volumes:
-  sqlvolume:
-
+    #docker-compose up -d
