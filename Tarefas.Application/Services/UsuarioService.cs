@@ -39,8 +39,12 @@ public class UsuarioService : IUsuarioService
     {
         var usuario = await _repositoryManager.UsuarioRepository.FindByLoginAsync(usuarioSignIn.Login, token);
 
-        if (usuario == null || !usuario.Senha.Equals(usuarioSignIn.Login))
+        if (usuario == null)
             throw new SignInException("Usuário e/ou senha inválidos");
+
+        if (!usuario.Senha.Equals(usuarioSignIn.Login))
+            throw new SignInException("Usuário e/ou senha inválidos");
+
 
         return usuario.Adapt<UsuarioDto>();
 
