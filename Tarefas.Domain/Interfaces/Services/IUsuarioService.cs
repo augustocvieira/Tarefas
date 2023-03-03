@@ -6,6 +6,6 @@ namespace Tarefas.Domain.Interfaces.Services;
 
 public interface IUsuarioService
 {
-    Task<UsuarioDto> SignUpAsync(UsuarioSignUpDto usuarioSignUp, CancellationToken token);
-    Task<UsuarioDto> SignInAsync(UsuarioSignInDto usuarioSignIn, CancellationToken token);
+    Task<UsuarioDto> SignUpAsync(UsuarioSignUpDto usuarioDto, CancellationToken cancellationToken);
+    Task<UsuarioDto> SignInAsync(UsuarioSignInDto usuarioDto, CancellationToken cancellationToken);
 }

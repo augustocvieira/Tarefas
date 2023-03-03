@@ -10,9 +10,9 @@ namespace Tarefas.Domain.Interfaces.Repositories
     public interface ITarefaRepository
     {
         Task<IEnumerable<Tarefa>> GetAsync(CancellationToken cancellationToken);
-        Task<IEnumerable<Tarefa>> GetAsync(Func<Tarefa, bool> condition, CancellationToken cancellationToken);
-        Task ExistsAsync(Expression<Func<Tarefa, bool>> condition, CancellationToken cancellationToken);
+        Task<IEnumerable<Tarefa>> GetAsync(Expression<Func<Tarefa, bool>> condition, CancellationToken cancellationToken);
+        Task<bool> ExistsAsync(Expression<Func<Tarefa, bool>> condition, CancellationToken cancellationToken);
         Task InsertAsync(Tarefa tarefa, CancellationToken cancellationToken);
-        Task Delete(Tarefa tarefa);
+        Task DeleteAsync(Tarefa tarefa);
     }
 }

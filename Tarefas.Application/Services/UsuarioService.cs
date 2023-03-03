@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Mapster;
@@ -19,30 +20,33 @@ public class UsuarioService : IUsuarioService
         _repositoryManager = repositoryManager;
     }
 
-    public async Task<UsuarioDto> SignUpAsync(UsuarioSignUpDto usuarioSignUp, CancellationToken token)
+    public async Task<UsuarioDto> SignUpAsync(UsuarioSignUpDto usuarioDto, CancellationToken cancellationToken)
     {
-        if(await _repositoryManager.UsuarioRepository.ExistsByLoginAsync(usuarioSignUp.Login, token))
+        if(await _repositoryManager.UsuarioRepository.ExistsAsync(usuario => usuario.Login.Equals(usuarioDto.Login), cancellationToken))
             throw new SignUpException("Usuario já cadastrado.");
 
-        if (!string.Equals(usuarioSignUp.Senha, usuarioSignUp.RepitaSenha))
+        if (!string.Equals(usuarioDto.Senha, usuarioDto.RepitaSenha))
             throw new SignUpException("Senha informada não condiz com sua confirmação.");
 
-        var usuario = usuarioSignUp.Adapt<Usuario>();
+        var usuario = usuarioDto.Adapt<Usuario>();
 
-        await _repositoryManager.UsuarioRepository.InsertAsync(usuario, token);
-        await _repositoryManager.UnitOfWork.SaveChangesAsync(token);
+        await _repositoryManager.UsuarioRepository.InsertAsync(usuario, cancellationToken);
+        await _repositoryManager.UnitOfWork.SaveChangesAsync(cancellationToken);
 
         return usuario.Adapt<UsuarioDto>();
     }
 
-    public async Task<UsuarioDto> SignInAsync(UsuarioSignInDto usuarioSignIn, CancellationToken token)
+    public async Task<UsuarioDto> SignInAsync(UsuarioSignInDto usuarioDto, CancellationToken cancellationToken)
     {
-        var usuario = await _repositoryManager.UsuarioRepository.FindByLoginAsync(usuarioSignIn.Login, token);
-
-        if (usuario == null)
+        if (!await _repositoryManager.UsuarioRepository.ExistsAsync(usuario => usuario.Login.Equals(usuarioDto.Login), cancellationToken))
             throw new SignInException("Usuário e/ou senha inválidos");
 
-        if (!usuario.Senha.Equals(usuarioSignIn.Login))
+        var usuario =
+            (await _repositoryManager.UsuarioRepository.GetAsync(usuario => usuario.Login.Equals(usuarioDto.Login),
+                cancellationToken))
+            .First();
+
+        if (!usuario.Senha.Equals(usuarioDto.Login))
             throw new SignInException("Usuário e/ou senha inválidos");
 
 

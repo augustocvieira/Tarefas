@@ -31,7 +31,7 @@ namespace Tarefas.Presentation.Wpf
         private async void TestaIoC()
         {
             //var repo = _repositoryManager.StatusRepository;
-            //var result = await repo.GetAll(CancellationToken.None);
+            //var result = await repo.GetAsync(CancellationToken.None);
             //Console.WriteLine("Tes");
         }
     }

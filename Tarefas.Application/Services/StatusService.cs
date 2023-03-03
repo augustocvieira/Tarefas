@@ -19,7 +19,7 @@ public class StatusService : IStatusService
 
     public async Task<IEnumerable<StatusDto>> GetAllAsync(CancellationToken token)
     {
-        var statuses = await _repositoryManager.StatusRepository.GetAll(token);
+        var statuses = await _repositoryManager.StatusRepository.GetAsync(token);
         var result = statuses.Adapt<IEnumerable<StatusDto>>();
         return result;
     }
